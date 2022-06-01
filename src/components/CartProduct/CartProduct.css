@@ -1,0 +1,138 @@
+.cart-product {
+  display: flex;
+  gap: 24px;
+  padding: 24px 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.cart-product .product-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cart-product .product-details .product-details__name {
+  font-weight: 600;
+  font-size: 30px;
+}
+
+.cart-product .product-details .product-details__brand {
+  font-weight: 400;
+  font-size: 30px;
+}
+
+.cart-product .product-details .price {
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.cart-product .product-attributes {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cart-product .product-attributes .product-attributes__row {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cart-product
+  .product-attributes
+  .product-attributes__row
+  .product-attributes__row-name {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.cart-product
+  .product-attributes
+  .product-attributes__row
+  .product-attributes__row-values {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+.cart-product
+  .product-attributes
+  .product-attributes__row
+  .product-attributes__row-values
+  button {
+  transition: all 250ms ease-out;
+  width: 32px;
+  height: 32px;
+  border: 1px solid transparent;
+  border-bottom: 1px solid var(--color-green);
+  padding: 2px;
+  color: black;
+}
+
+.cart-product
+  .product-attributes
+  .product-attributes__row
+  .product-attributes__row-values
+  button:disabled {
+  cursor: default;
+}
+
+.cart-product
+  .product-attributes
+  .product-attributes__row
+  .product-attributes__row-values
+  button.box {
+  width: 63px;
+  height: 45px;
+  border: 1px solid black;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.cart-product
+  .product-attributes
+  .product-attributes__row
+  .product-attributes__row-values
+  button.box.active {
+  color: white;
+  background-color: var(--color-pale-black);
+  border-color: transparent;
+}
+
+.cart-product
+  .product-attributes
+  .product-attributes__row
+  .product-attributes__row-values
+  button.active {
+  border-color: var(--color-green);
+}
+
+.cart-product
+  .product-attributes
+  .product-attributes__row
+  .product-attributes__row-values
+  button
+  div {
+  width: 100%;
+  height: 100%;
+}
+
+.cart-product .product-quantity {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-product .product-quantity button img {
+  width: 45px;
+  height: 45px;
+}
+
+.cart-product .product-quantity p {
+  font-weight: 500;
+  font-size: 24px;
+}

@@ -1,0 +1,146 @@
+.product-page__layout {
+  display: flex;
+  gap: 20px;
+}
+
+.produt-page__gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.produt-page__gallery img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.product-page__image img {
+  width: 610px;
+  height: 511px;
+  object-fit: contain;
+}
+
+.product-page__details {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+}
+
+.product-page__name {
+  font-weight: 600;
+  font-size: 30px;
+}
+
+.product-page__brand {
+  font-weight: 400;
+  font-size: 30px;
+}
+
+.product-page__attributes {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.product-page__attributes .attribute-row__title {
+  font-weight: 700;
+  font-size: 18px;
+  padding: 5px 0;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.product-page__attributes .attribute-row__values {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5px;
+}
+
+.product-page__attributes .attribute-row__values button {
+  transition: all 250ms ease-out;
+  width: 32px;
+  height: 32px;
+  border: 1px solid transparent;
+  border-bottom: 1px solid var(--color-green);
+  padding: 2px;
+}
+
+.product-page__attributes .attribute-row__values button.box {
+  width: 63px;
+  height: 45px;
+  border: 1px solid black;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.product-page__attributes .attribute-row__values button.box.active {
+  color: white;
+  background-color: var(--color-pale-black);
+  border-color: transparent;
+}
+
+.product-page__attributes .attribute-row__values button.active {
+  border-color: var(--color-green);
+}
+
+.product-page__attributes .attribute-row__values button div {
+  width: 100%;
+  height: 100%;
+}
+
+.product-page__price {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+.product-page__price .price-text {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.product-page__price .price {
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.product-page__button {
+  text-transform: uppercase;
+  background-color: var(--color-green);
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  margin-top: 20px;
+  height: 52px;
+  transition: transform ease-out 200ms;
+}
+
+.product-page__button:hover:not([disabled]) {
+  transform: scale(0.98);
+}
+
+.product-page__button:disabled {
+  cursor: default;
+}
+
+.product-page__description {
+  padding-top: 20px;
+  font-family: "Roboto", sans-serif;
+}
+
+.product-page__description p {
+  font-weight: 400;
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.product-page__description li {
+  margin: 8px 0;
+  font-weight: 400;
+  font-size: 16px;
+}

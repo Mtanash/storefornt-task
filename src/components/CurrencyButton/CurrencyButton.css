@@ -1,0 +1,43 @@
+.currency-button {
+  position: relative;
+  display: flex;
+  gap: 2px;
+  align-items: center;
+}
+
+.currency-button .currency-button__symbol {
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.currency-button__menu {
+  position: absolute;
+  z-index: 10;
+  background-color: white;
+  top: 30px;
+  left: -150%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.currency-button__menu.hidden {
+  display: none;
+}
+
+.currency-button__menu .currency-button__option {
+  padding: var(--sm) var(--md);
+  font-weight: 500;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--sm);
+  cursor: pointer;
+}
+
+.currency-button__menu .currency-button__option:hover {
+  background-color: #eee;
+}
+
+.currency-button__menu p span {
+  flex-basis: 24px;
+}

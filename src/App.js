@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import { gql } from "@apollo/client";
+import React from "react";
+import { client } from "./apollo";
+import CategoryPage from "./components/CategoryPage/CategoryPage";
+import Header from "./components/Header/Header";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ProductPage from "./components/ProductPage/ProductPage";
+import { connect } from "react-redux";
+import { setCategories } from "./redux/actions/category";
+import CartPage from "./components/CartPage/CartPage";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  componentDidMount() {
+    client
+      .query({
+        query: gql`
+          query {
+            categories {
+              name
+            }
+          }
+        `,
+      })
+      .then((response) => {
+        this.props.setCategories(response.data.categories);
+      });
+  }
+
+  render() {
+    return (
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/" element={<CategoryPage />}></Route>
+          <Route path="/cart" element={<CartPage />} />
+          <Route path="/:productId" element={<ProductPage />} />
+        </Routes>
+      </BrowserRouter>
+    );
+  }
 }
 
-export default App;
+export default connect(null, { setCategories })(App);

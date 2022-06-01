@@ -1,0 +1,8 @@
+.price {
+  padding-top: 5px;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--color-pale-black);
+}

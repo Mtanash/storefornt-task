@@ -1,0 +1,13 @@
+.category-page__title {
+  font-weight: 400;
+  font-size: 42px;
+  text-transform: capitalize;
+}
+
+.category-page__products {
+  margin-top: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}

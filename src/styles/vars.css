@@ -1,0 +1,11 @@
+:root {
+  /* colors */
+  --color-green: #5ece7b;
+  --color-pale-black: #1d1f22;
+  --color-pale-gray: #8d8f9a;
+
+  /* spaces */
+  --sm: 0.75rem;
+  --md: 1.25rem;
+  --lg: 2.5rem;
+}
