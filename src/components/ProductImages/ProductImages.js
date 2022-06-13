@@ -11,39 +11,47 @@ class ProductImages extends Component {
   }
 
   handleImageChange = (direction) => {
+    const { currentImageIndex } = this.state;
+
+    const { images } = this.props;
+
     if (direction === 1) {
-      if (this.state.currentImageIndex < this.props.images.length - 1) {
+      if (currentImageIndex < images.length - 1) {
         this.setState({
           ...this.state,
-          currentImageIndex: this.state.currentImageIndex + 1,
+          currentImageIndex: currentImageIndex + 1,
         });
       } else {
         this.setState({ ...this.state, currentImageIndex: 0 });
       }
     } else if (direction === -1) {
-      if (this.state.currentImageIndex > 0) {
+      if (currentImageIndex > 0) {
         this.setState({
           ...this.state,
-          currentImageIndex: this.state.currentImageIndex - 1,
+          currentImageIndex: currentImageIndex - 1,
         });
       } else {
         this.setState({
           ...this.state,
-          currentImageIndex: this.props.images.length - 1,
+          currentImageIndex: images.length - 1,
         });
       }
     }
   };
 
   render() {
+    const { images } = this.props;
+
+    const { currentImageIndex } = this.state;
+
     return (
       <div className="product-images">
         <img
           className="product-images__img"
-          src={this.props.images[this.state.currentImageIndex]}
+          src={images[currentImageIndex]}
           alt="product"
         />
-        {this.props.images.length > 1 && (
+        {images.length > 1 && (
           <div className="product-images__buttons">
             <button onClick={() => this.handleImageChange(1)}>
               <img src="/images/caret-left.png" alt="left" />

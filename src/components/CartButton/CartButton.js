@@ -50,14 +50,21 @@ class CartButton extends Component {
   };
 
   render() {
+    const {
+      currentCurrencySymbol,
+      cartProductsTotalCost,
+      cartProductsCount,
+      cartProducts,
+    } = this.props;
+
     return (
       <>
         <button className="cart-button" ref={this.cartButtonRef}>
           <div onClick={this.toggleCartMenu}>
             <img src="/images/empty-cart.svg" alt="cart" className="icon" />
-            {this.props.cartProductsCount > 0 && (
+            {cartProductsCount > 0 && (
               <span className="icon cart-button__badge">
-                {this.props.cartProductsCount}
+                {cartProductsCount}
               </span>
             )}
           </div>
@@ -70,19 +77,19 @@ class CartButton extends Component {
           <div className="cart-button__menu" ref={this.cartMenuRef}>
             <div className="menu__header">
               <p>
-                My Bag, <span>{this.props.cartProductsCount} items</span>
+                My Bag, <span>{cartProductsCount} items</span>
               </p>
             </div>
             <div className="menu__products">
-              {this.props.cartProducts.map((product) => (
+              {cartProducts.map((product) => (
                 <CartProduct key={product.id} product={product} />
               ))}
             </div>
             <div className="menu__total">
               <p>Total</p>
               <p>
-                {this.props.currentCurrencySymbol}
-                {this.props.cartProductsTotalCost}
+                {currentCurrencySymbol}
+                {cartProductsTotalCost}
               </p>
             </div>
             <div className="menu__buttons">
@@ -93,7 +100,11 @@ class CartButton extends Component {
               >
                 view bag
               </Link>
-              <Link className="checkout-button" to="./cart">
+              <Link
+                onClick={this.closeCartMenu}
+                className="checkout-button"
+                to="./cart"
+              >
                 checkout
               </Link>
             </div>

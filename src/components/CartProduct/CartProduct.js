@@ -11,18 +11,26 @@ import "./CartProduct.css";
 
 class CartProduct extends Component {
   render() {
+    const {
+      id: productId,
+      product: { name, brand, prices, attributes, selectedAttributes, gallery },
+      amount,
+    } = this.props.product;
+
+    const {
+      increaseCartProductAmount,
+      removeProductFromCart,
+      decreaseCartProductAmount,
+    } = this.props;
+
     return (
       <div className="cart-product">
         <div className="product-details">
-          <h3 className="product-details__name">
-            {this.props.product.product.name}
-          </h3>
-          <p className="product-details__brand">
-            {this.props.product.product.brand}
-          </p>
-          <Price prices={this.props.product.product.prices} />
+          <h3 className="product-details__name">{name}</h3>
+          <p className="product-details__brand">{brand}</p>
+          <Price prices={prices} />
           <div className="product-attributes">
-            {this.props.product.product.attributes.map((att) => (
+            {attributes.map((att) => (
               <div key={att.id} className="product-attributes__row">
                 <p className="product-attributes__row-name">{att.name}:</p>
                 <div className="product-attributes__row-values">
@@ -30,9 +38,7 @@ class CartProduct extends Component {
                     <button
                       disabled
                       className={`${att.type === "text" ? "box" : ""} ${
-                        this.props.product.product.selectedAttributes[
-                          att.name
-                        ] === item.value
+                        selectedAttributes[att.name] === item.value
                           ? "active"
                           : ""
                       }`}
@@ -57,23 +63,19 @@ class CartProduct extends Component {
           </div>
         </div>
         <div className="product-quantity">
-          <button
-            onClick={() =>
-              this.props.increaseCartProductAmount(this.props.product.id)
-            }
-          >
+          <button onClick={() => increaseCartProductAmount(productId)}>
             <img
               src="/images/plus-square-small.svg"
               alt="increase product amount"
             />
           </button>
-          <p>{this.props.product.amount}</p>
+          <p>{amount}</p>
           <button
             onClick={() => {
-              if (this.props.product.amount === 1) {
-                this.props.removeProductFromCart(this.props.product.id);
+              if (amount === 1) {
+                removeProductFromCart(productId);
               } else {
-                this.props.decreaseCartProductAmount(this.props.product.id);
+                decreaseCartProductAmount(productId);
               }
             }}
           >
@@ -83,7 +85,7 @@ class CartProduct extends Component {
             />
           </button>
         </div>
-        <ProductImages images={this.props.product.product.gallery} />
+        <ProductImages images={gallery} />
       </div>
     );
   }

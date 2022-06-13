@@ -18,7 +18,7 @@
   flex: 0.4;
 }
 
-.header__nav button {
+.header__nav > a {
   text-transform: uppercase;
   font-weight: 400;
   border: none;
@@ -26,9 +26,11 @@
   font-size: 16px;
   cursor: pointer;
   padding: var(--md);
+  text-decoration: none;
+  color: var(--color-pale-black);
 }
 
-.header__nav button.active {
+.header__nav > a.active {
   color: var(--color-green);
   font-weight: 600;
   border-bottom: 2px solid var(--color-green);

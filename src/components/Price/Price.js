@@ -19,26 +19,32 @@ class Price extends Component {
   }
 
   componentDidMount() {
-    const price = this.props.prices.find(
-      (price) => price.currency.label === this.props.currentCurrency.label
+    const { prices, currentCurrency } = this.props;
+
+    const price = prices.find(
+      (price) => price.currency.label === currentCurrency.label
     );
     this.setState({ price });
   }
 
   componentDidUpdate() {
-    const price = this.props.prices.find(
-      (price) => price.currency.label === this.props.currentCurrency.label
+    const { prices, currentCurrency } = this.props;
+    const { price: statePrice } = this.state;
+
+    const price = prices.find(
+      (price) => price.currency.label === currentCurrency.label
     );
-    if (price.currency.label !== this.state.price.currency.label) {
+    if (price.currency.label !== statePrice.currency.label) {
       this.setState({ price });
     }
   }
 
   render() {
+    const { currency, amount } = this.state.price;
+
     return (
       <p className="price">
-        <span>{this.state.price.currency.symbol}</span>{" "}
-        {this.state.price.amount}
+        <span>{currency.symbol}</span> {amount.toFixed(2)}
       </p>
     );
   }

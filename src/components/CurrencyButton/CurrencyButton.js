@@ -46,6 +46,10 @@ class CurrencyButton extends Component {
   };
 
   render() {
+    const { currentCurrency } = this.props;
+
+    const { currencyMenuIsOpen, currencies } = this.state;
+
     return (
       <button
         ref={this.currencyButtonRef}
@@ -53,9 +57,9 @@ class CurrencyButton extends Component {
         onClick={this.toggleCurrencyMenuIsOpen}
       >
         <div className="icon currency-button__symbol">
-          {this.props.currentCurrency.symbol}
+          {currentCurrency.symbol}
         </div>
-        {this.state.currencyMenuIsOpen ? (
+        {currencyMenuIsOpen ? (
           <img
             src="/images/arrow-up.svg"
             alt="arrow-up"
@@ -71,11 +75,9 @@ class CurrencyButton extends Component {
           />
         )}
         <div
-          className={`currency-button__menu ${
-            !this.state.currencyMenuIsOpen && "hidden"
-          }`}
+          className={`currency-button__menu ${!currencyMenuIsOpen && "hidden"}`}
         >
-          {this.state.currencies.map((currency, index) => (
+          {currencies.map((currency, index) => (
             <p
               className="currency-button__option"
               key={index}

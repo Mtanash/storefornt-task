@@ -60,6 +60,11 @@ class ProductPage extends Component {
   }
 
   render() {
+    const { gallery, name, inStock, brand, attributes, prices, description } =
+      this.state.product;
+
+    const { selectedAttributes } = this.state;
+
     return !this.state.product?.name ? (
       <section>
         <p>Loading...</p>
@@ -69,28 +74,28 @@ class ProductPage extends Component {
         <div className="container">
           <div className="product-page__layout">
             <div className="produt-page__gallery">
-              {this.state.product.gallery.map((pic, index) => (
+              {gallery.map((pic, index) => (
                 <img
                   key={pic}
                   src={pic}
-                  alt={this.state.product.name}
+                  alt={name}
                   onClick={() => this.changeCurrentImageIndex(index)}
                 />
               ))}
             </div>
             <div className="product-page__image">
-              <img
-                src={this.state.product.gallery[this.state.currentImageIndex]}
-                alt={this.state.product.name}
-              />
+              <img src={gallery[this.state.currentImageIndex]} alt={name} />
+              {!inStock && (
+                <div className="outofstock">
+                  <p>Out of stock</p>
+                </div>
+              )}
             </div>
             <div className="product-page__details">
-              <h2 className="product-page__name">{this.state.product.name}</h2>
-              <h3 className="product-page__brand">
-                {this.state.product.brand}
-              </h3>
+              <h2 className="product-page__name">{name}</h2>
+              <h3 className="product-page__brand">{brand}</h3>
               <div className="product-page__attributes">
-                {this.state.product.attributes.map((att) => (
+                {attributes.map((att) => (
                   <div key={att.id} className="attribute-row">
                     <p className="attribute-row__title">{att.name}:</p>
                     <div className="attribute-row__values">
@@ -100,8 +105,7 @@ class ProductPage extends Component {
                             this.handleAttributeChange(att.name, item.value)
                           }
                           className={`${att.type === "text" ? "box" : ""} ${
-                            this.state.selectedAttributes[att.name] ===
-                            item.value
+                            selectedAttributes[att.name] === item.value
                               ? "active"
                               : ""
                           }`}
@@ -126,17 +130,17 @@ class ProductPage extends Component {
               </div>
               <div className="product-page__price">
                 <p className="price-text">Price:</p>
-                <Price prices={this.state.product.prices} />
+                <Price prices={prices} />
               </div>
               <button
                 className="product-page__button"
-                disabled={!this.state.product.inStock}
+                disabled={!inStock}
                 onClick={this.handleAddToCartButtonClick}
               >
-                {this.state.product.inStock ? "Add to cart" : "Out of stock"}
+                {inStock ? "Add to cart" : "Out of stock"}
               </button>
               <div className="product-page__description">
-                {parse(this.state.product.description)}
+                {parse(description)}
               </div>
             </div>
           </div>

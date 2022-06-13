@@ -9,12 +9,15 @@ import "./CartPage.css";
 
 class CartPage extends Component {
   render() {
+    const { cartProducts, currentCurrencySymbol, cartProductsTotalCost } =
+      this.props;
+
     return (
       <section className="cart-page full-height">
         <div className="container">
           <h2 className="cart-page__title">Cart</h2>
           <div className="cart-page__products">
-            {this.props.cartProducts.map((product) => (
+            {cartProducts.map((product) => (
               <CartProduct key={product.id} product={product} />
             ))}
           </div>
@@ -22,8 +25,8 @@ class CartPage extends Component {
             <div className="tax">
               <p>Tax 21%:</p>
               <p>
-                {this.props.currentCurrencySymbol}
-                {((this.props.cartProductsTotalCost * 21) / 100).toFixed(2)}
+                {currentCurrencySymbol}
+                {((cartProductsTotalCost * 21) / 100).toFixed(2)}
               </p>
             </div>
             <div className="quantity">
@@ -33,8 +36,8 @@ class CartPage extends Component {
             <div className="total">
               <p>Total:</p>
               <p>
-                {this.props.currentCurrencySymbol}
-                {this.props.cartProductsTotalCost}
+                {currentCurrencySymbol}
+                {cartProductsTotalCost}
               </p>
             </div>
             <button className="cart-page__total-button">order</button>

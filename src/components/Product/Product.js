@@ -19,25 +19,25 @@ class Product extends Component {
   };
 
   render() {
+    const { inStock, id, gallery, name, brand, prices } = this.props.product;
+
     return (
-      <div className={`product ${!this.props.product.inStock && "outofstock"}`}>
-        <Link to={`/${this.props.product.id}`}>
+      <div className={`product ${!inStock && "outofstock"}`}>
+        <Link to={`/${id}`}>
           <div className="image-container">
-            <img
-              className="product__image"
-              src={this.props.product.gallery[0]}
-              alt={this.props.product.name}
-            />
-            {!this.props.product.inStock && (
+            <img className="product__image" src={gallery[0]} alt={name} />
+            {!inStock && (
               <div className="outofstock">
                 <p>Out of stock</p>
               </div>
             )}
           </div>
         </Link>
-        <p className="product__name">{this.props.product.name}</p>
-        <Price prices={this.props.product.prices} />
-        {this.props.product.inStock && (
+        <p className="product__name">
+          {brand} {name}
+        </p>
+        <Price prices={prices} />
+        {inStock && (
           <button
             className="product__button"
             onClick={this.handleAddToCartButtonClick}

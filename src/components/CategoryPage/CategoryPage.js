@@ -30,14 +30,16 @@ class CategoryPage extends Component {
   }
 
   render() {
+    const { selectedCategory } = this.props;
+
+    const { products } = this.state;
+
     return (
       <section className="category-page full-height">
         <div className="container">
-          <h2 className="category-page__title">
-            {this.props.selectedCategory}
-          </h2>
+          <h2 className="category-page__title">{selectedCategory}</h2>
           <div className="category-page__products">
-            {this.state.products?.map((product) => (
+            {products?.map((product) => (
               <Product key={product.id} product={product} />
             ))}
           </div>
