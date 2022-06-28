@@ -1,6 +1,6 @@
 import { ApolloClient, InMemoryCache } from "@apollo/client";
 
-const URI = "http://localhost:4000";
+const URI = "https://storefornt-task-endpoint.herokuapp.com";
 
 export const client = new ApolloClient({
   uri: URI,
