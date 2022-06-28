@@ -34,10 +34,10 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: 350px;
+  width: 310px;
   background-color: white;
   max-height: 677px;
-  padding: 32px 16px;
+  padding: 24px 12px;
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -187,4 +187,11 @@
 .cart-button__menu .menu__buttons .checkout-button {
   color: white;
   background-color: var(--color-green);
+}
+
+@media (min-width: 768px) {
+  .cart-button__menu {
+    width: 350px;
+    padding: 32px 16px;
+  }
 }

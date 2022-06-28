@@ -11,10 +11,14 @@
   width: 100%;
 }
 
+.header__logo {
+  display: none;
+}
+
 .header__nav {
   display: flex;
   align-items: center;
-  gap: var(--md);
+  gap: var(--sm);
   flex: 0.4;
 }
 
@@ -23,9 +27,9 @@
   font-weight: 400;
   border: none;
   background-color: transparent;
-  font-size: 16px;
+  font-size: 14px;
   cursor: pointer;
-  padding: var(--md);
+  padding: var(--sm);
   text-decoration: none;
   color: var(--color-pale-black);
 }
@@ -40,6 +44,25 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: var(--md);
+  gap: var(--sm);
   flex: 0.4;
+}
+
+@media (min-width: 768px) {
+  .header__nav {
+    gap: var(--md);
+  }
+
+  .header__nav > a {
+    font-size: 16px;
+    padding: var(--md);
+  }
+
+  .header__buttons {
+    gap: var(--md);
+  }
+
+  .header__logo {
+    display: unset;
+  }
 }

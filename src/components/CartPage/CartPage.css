@@ -18,16 +18,16 @@
 .cart-page .cart-page__total div p:first-child {
   flex-basis: 110px;
   font-weight: 400;
-  font-size: 24px;
+  font-size: 18px;
 }
 
 .cart-page .cart-page__total div p:nth-child(2) {
   font-weight: 700;
-  font-size: 24px;
+  font-size: 18px;
 }
 
 .cart-page .cart-page__total-button {
-  width: 279px;
+  width: 210px;
   height: 43px;
   background-color: var(--color-green);
   color: white;
@@ -35,4 +35,25 @@
   font-weight: 600;
   text-transform: uppercase;
   margin: 16px 0;
+}
+
+@media (min-width: 768px) {
+  .cart-page .cart-page__total div p:first-child {
+    font-size: 24px;
+  }
+
+  .cart-page .cart-page__total div p:nth-child(2) {
+    font-size: 24px;
+  }
+
+  .cart-page .cart-page__total-button {
+    width: 279px;
+    height: 43px;
+    background-color: var(--color-green);
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 16px 0;
+  }
 }
