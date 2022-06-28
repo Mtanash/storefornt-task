@@ -1,4 +1,4 @@
-# Store front task for Scandiweb
+# Store front task for company i applied to
 
 ## How to configure and run application
 
