@@ -5,6 +5,11 @@
 > replace URI variable in apollo/index.js to the graphql endpoint.
 > then `npm install & npm run`
 
+### Technologies used in application
+
+- React js (using class components)
+- Redux
+
 ### application routes
 
 | page                      | URL          |
