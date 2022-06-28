@@ -73,7 +73,7 @@ class ProductPage extends Component {
       <section className="product-page full-height">
         <div className="container">
           <div className="product-page__layout">
-            <div className="produt-page__gallery">
+            <div className="product-page__gallery">
               {gallery.map((pic, index) => (
                 <img
                   key={pic}
